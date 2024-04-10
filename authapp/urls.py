@@ -1,8 +1,8 @@
-from django.urls import path
-from . import views
-
-app_name = 'authapp'
+from django.urls import path, include
+from .views import authView, home
 
 urlpatterns = [
-    path('', views.signup, name='signup'),
+ path("", home, name="home"),
+ path("signup/", authView, name="authView"),
+ path("accounts/", include("django.contrib.auth.urls")),
 ]
